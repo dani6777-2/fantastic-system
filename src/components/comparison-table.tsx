@@ -149,4 +149,3 @@ export function ComparisonTable({ providers }: ComparisonTableProps) {
     </div>
   );
 }
-
