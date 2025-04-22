@@ -20,7 +20,9 @@ export function ComparisonTable({ providers }: ComparisonTableProps) {
   const comparisonData = {
     AWS: {
       name: "Amazon Web Services",
-      image: "https://picsum.photos/100/80", // Replace with actual AWS logo
+      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Amazon_Web_Services_Logo.svg/2560px-Amazon_Web_Services_Logo.svg.png",
+      description: "Amazon Web Services (AWS) is a comprehensive and widely adopted cloud platform, offering a broad set of services from data centers around the world.",
+      link: "https://aws.amazon.com/",
       compute: {
         service: "EC2",
         description:
@@ -42,7 +44,9 @@ export function ComparisonTable({ providers }: ComparisonTableProps) {
     },
     Azure: {
       name: "Microsoft Azure",
-      image: "https://picsum.photos/100/80", // Replace with actual Azure logo
+      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Microsoft_Azure_Logo.svg/2560px-Microsoft_Azure_Logo.svg.png",
+      description: "Microsoft Azure is a growing collection of integrated cloud services—analytics, computing, database, mobile, networking, storage and web—for moving faster, achieving more and saving money.",
+      link: "https://azure.microsoft.com/",
       compute: {
         service: "Virtual Machines",
         description:
@@ -64,7 +68,9 @@ export function ComparisonTable({ providers }: ComparisonTableProps) {
     },
     GCP: {
       name: "Google Cloud Platform",
-      image: "https://picsum.photos/100/80", // Replace with actual GCP logo
+      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_Cloud_Platform_logo.svg/2560px-Google_Cloud_Platform_logo.svg.png",
+      description: "Google Cloud Platform is a suite of cloud computing services that runs on the same infrastructure that Google uses internally for its end-user products, such as Google Search and YouTube.",
+      link: "https://cloud.google.com/",
       compute: {
         service: "Compute Engine",
         description:
@@ -89,66 +95,86 @@ export function ComparisonTable({ providers }: ComparisonTableProps) {
   const features = ["Compute", "Storage", "Database"];
 
   return (
-    <Table>
-      <TableCaption>Comparison of Cloud Providers</TableCaption>
-      <TableHeader>
-        <TableRow>
-          <TableHead className="w-[150px]">Feature</TableHead>
-          {providers.map((provider) => (
-            <TableHead key={provider} className="w-[250px]">
-              {comparisonData[provider as keyof typeof comparisonData].name}
-              <Image
-                src={
-                  comparisonData[provider as keyof typeof comparisonData].image
-                }
-                alt={`${
-                  comparisonData[provider as keyof typeof comparisonData].name
-                } Logo`}
-                width={100}
-                height={80}
-                className="rounded-md"
-              />
-            </TableHead>
-          ))}
-        </TableRow>
-      </TableHeader>
-      <TableBody>
-        {features.map((feature) => (
-          <TableRow key={feature}>
-            <TableCell className="font-medium">{feature}</TableCell>
+    <div>
+      {providers.map((provider) => (
+        <div key={provider} className="mb-8">
+          <h2 className="text-xl font-bold mb-2">
+            {comparisonData[provider as keyof typeof comparisonData].name}
+          </h2>
+          <Image
+            src={comparisonData[provider as keyof typeof comparisonData].image}
+            alt={`${
+              comparisonData[provider as keyof typeof comparisonData].name
+            } Logo`}
+            width={150}
+            height={60}
+            className="rounded-md mb-2"
+          />
+          <p className="mb-2">
+            {comparisonData[provider as keyof typeof comparisonData].description}
+            <a
+              href={
+                comparisonData[provider as keyof typeof comparisonData].link
+              }
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-accent hover:underline ml-1"
+            >
+              Learn more
+            </a>
+          </p>
+        </div>
+      ))}
+      <Table>
+        <TableCaption>Comparison of Cloud Providers</TableCaption>
+        <TableHeader>
+          <TableRow>
+            <TableHead className="w-[150px]">Feature</TableHead>
             {providers.map((provider) => (
-              <TableCell key={`${provider}-${feature}`}>
-                <p className="font-bold">
-                  {
-                    comparisonData[provider as keyof typeof comparisonData][
-                      feature.toLowerCase() as keyof typeof comparisonData.AWS
-                    ].service
-                  }
-                </p>
-                <p>
-                  {
-                    comparisonData[provider as keyof typeof comparisonData][
-                      feature.toLowerCase() as keyof typeof comparisonData.AWS
-                    ].description
-                  }
-                </p>
-                <a
-                  href={
-                    comparisonData[provider as keyof typeof comparisonData][
-                      feature.toLowerCase() as keyof typeof comparisonData.AWS
-                    ].link
-                  }
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-accent hover:underline"
-                >
-                  Learn more
-                </a>
-              </TableCell>
+              <TableHead key={provider} className="w-[250px]">
+                {comparisonData[provider as keyof typeof comparisonData].name}
+              </TableHead>
             ))}
           </TableRow>
-        ))}
-      </TableBody>
-    </Table>
+        </TableHeader>
+        <TableBody>
+          {features.map((feature) => (
+            <TableRow key={feature}>
+              <TableCell className="font-medium">{feature}</TableCell>
+              {providers.map((provider) => (
+                <TableCell key={`${provider}-${feature}`}>
+                  <p className="font-bold">
+                    {
+                      comparisonData[provider as keyof typeof comparisonData][
+                        feature.toLowerCase() as keyof typeof comparisonData.AWS
+                      ].service
+                    }
+                  </p>
+                  <p>
+                    {
+                      comparisonData[provider as keyof typeof comparisonData][
+                        feature.toLowerCase() as keyof typeof comparisonData.AWS
+                      ].description
+                    }
+                  </p>
+                  <a
+                    href={
+                      comparisonData[provider as keyof typeof comparisonData][
+                        feature.toLowerCase() as keyof typeof comparisonData.AWS
+                      ].link
+                    }
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-accent hover:underline"
+                  >
+                    Learn more
+                  </a>
+                </TableCell>
+              ))}
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </div>
   );
 }
