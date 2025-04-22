@@ -96,35 +96,6 @@ export function ComparisonTable({ providers }: ComparisonTableProps) {
 
   return (
     <div>
-      {providers.map((provider) => (
-        <div key={provider} className="mb-8">
-          <h2 className="text-xl font-bold mb-2">
-            {comparisonData[provider as keyof typeof comparisonData].name}
-          </h2>
-          <Image
-            src={comparisonData[provider as keyof typeof comparisonData].image}
-            alt={`${
-              comparisonData[provider as keyof typeof comparisonData].name
-            } Logo`}
-            width={150}
-            height={60}
-            className="rounded-md mb-2"
-          />
-          <p className="mb-2">
-            {comparisonData[provider as keyof typeof comparisonData].description}
-            <a
-              href={
-                comparisonData[provider as keyof typeof comparisonData].link
-              }
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-accent hover:underline ml-1"
-            >
-              Learn more
-            </a>
-          </p>
-        </div>
-      ))}
       <Table>
         <TableCaption>Comparison of Cloud Providers</TableCaption>
         <TableHeader>
