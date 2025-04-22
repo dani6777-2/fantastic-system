@@ -23,7 +23,7 @@ export function CloudProviderList({
           onClick={() => onProviderSelect(provider)}
           className={cn(
             'cursor-pointer',
-            selectedProviders.includes(provider) ? 'bg-primary text-primary-foreground' : ''
+            selectedProviders.includes(provider) ? 'bg-accent text-accent-foreground' : ''
           )}
         >
           {provider}
@@ -32,4 +32,3 @@ export function CloudProviderList({
     </div>
   );
 }
-

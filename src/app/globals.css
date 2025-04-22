@@ -20,7 +20,7 @@ body {
     --secondary-foreground: 220.9 39.3% 11%;
     --muted: 220 14.3% 95.1%;
     --muted-foreground: 220 8.9% 46.1%;
-    --accent: 207 90% 54%;
+    --accent: 214 90% 52%;
     --accent-foreground: 0 0% 100%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
@@ -89,3 +89,15 @@ body {
   }
 }
 
+/* Estilos personalizados para el bloque de código */
+.code-block {
+  @apply bg-gray-100 rounded-md p-4 overflow-x-auto;
+}
+
+.code-block pre {
+  @apply text-sm;
+}
+
+.code-block code {
+  @apply font-mono text-sm text-gray-800;
+}

@@ -40,7 +40,7 @@ export default function Home() {
 
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4">Comparación de Proveedores de Nube</h1>
+      <h1 className="text-3xl font-bold mb-4 text-center">Comparador de Proveedores de Nube</h1>
       <CloudProviderList
         selectedProviders={selectedProviders}
         onProviderSelect={handleProviderSelect}
@@ -50,22 +50,24 @@ export default function Home() {
       )}
 
       {/* Sección de Información de Proveedores */}
-      <div className="mt-8">
+      <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {selectedProviders.map((provider) => (
-              <div key={provider} className="mb-8">
+              <div key={provider} className="p-6 rounded-md shadow-md hover:shadow-lg transition-shadow duration-300">
                   <h2 className="text-xl font-bold mb-2">
                       {comparisonData[provider as keyof typeof comparisonData].name}
                   </h2>
-                  <Image
-                      src={comparisonData[provider as keyof typeof comparisonData].image}
-                      alt={`${
-                          comparisonData[provider as keyof typeof comparisonData].name
-                      } Logo`}
-                      width={150}
-                      height={60}
-                      className="rounded-md mb-2"
-                  />
-                  <p className="mb-2">
+                  <div className="flex justify-center mb-4">
+                      <Image
+                          src={comparisonData[provider as keyof typeof comparisonData].image}
+                          alt={`${
+                              comparisonData[provider as keyof typeof comparisonData].name
+                          } Logo`}
+                          width={150}
+                          height={60}
+                          className="rounded-md"
+                      />
+                  </div>
+                  <p className="mb-2 text-gray-700 dark:text-gray-300">
                       {comparisonData[provider as keyof typeof comparisonData].description}
                       <a
                           href={
@@ -85,106 +87,107 @@ export default function Home() {
       {/* Sección de Ejemplos de Código */}
       <div className="mt-8">
         <h2 className="text-2xl font-bold mb-4">Ejemplos de Código (Java)</h2>
-        {selectedProviders.map((provider) => (
-          <div key={provider} className="mb-8">
-            <h3 className="text-xl font-semibold mb-2">
-              {comparisonData[provider as keyof typeof comparisonData].name}
-            </h3>
-            {provider === "AWS" && (
-              <div className="bg-gray-100 rounded-md p-4 overflow-x-auto">
-                <pre className="text-sm">
-                  <code>
-                    {`// AWS S3: Subir un archivo\n` +
-                      `import com.amazonaws.AmazonServiceException;\n` +
-                      `import com.amazonaws.SdkClientException;\n` +
-                      `import com.amazonaws.auth.profile.ProfileCredentialsProvider;\n` +
-                      `import com.amazonaws.services.s3.AmazonS3;\n` +
-                      `import com.amazonaws.services.s3.AmazonS3ClientBuilder;\n` +
-                      `import java.io.File;\n` +
-                      `\n` +
-                      `public class S3Upload {\n` +
-                      `    public static void main(String[] args) {\n` +
-                      `        String bucketName = "***bucket_name***";\n` +
-                      `        String fileObjKeyName = "***file_key***";\n` +
-                      `        String fileName = "***file_path***/example.txt";\n` +
-                      `\n` +
-                      `        try {\n` +
-                      `            AmazonS3 s3Client = AmazonS3ClientBuilder.standard()\n` +
-                      `                    .withCredentials(new ProfileCredentialsProvider())\n` +
-                      `                    .withRegion("us-west-2")\n` +
-                      `                    .build();\n` +
-                      `            s3Client.putObject(bucketName, fileObjKeyName, new File(fileName));\n` +
-                      `        } catch (AmazonServiceException e) {\n` +
-                      `            e.printStackTrace();\n` +
-                      `        } catch (SdkClientException e) {\n` +
-                      `            e.printStackTrace();\n` +
-                      `        }\n` +
-                      `    }\n` +
-                      `}`}
-                  </code>
-                </pre>
-              </div>
-            )}
-            {provider === "Azure" && (
-              <div className="bg-gray-100 rounded-md p-4 overflow-x-auto">
-                <pre className="text-sm">
-                  <code>
-                    {`// Azure Blob Storage: Subir un blob\n` +
-                      `import com.azure.storage.blob.*;\n` +
-                      `import java.io.*;\n` +
-                      `\n` +
-                      `public class BlobUpload {\n` +
-                      `    public static void main(String[] args) throws IOException {\n` +
-                      `        String connectStr = "***connection_string***";\n` +
-                      `        String containerName = "***container_name***";\n` +
-                      `        String blobName = "***blob_name***/example.txt";\n` +
-                      `        String filePath = "***file_path***/example.txt";\n` +
-                      `\n` +
-                      `        BlobServiceClient blobServiceClient = new BlobServiceClientBuilder().connectionString(connectStr).buildClient();\n` +
-                      `        BlobContainerClient containerClient = blobServiceClient.getBlobContainerClient(containerName);\n` +
-                      `        BlobClient blobClient = containerClient.getBlobClient(blobName);\n` +
-                      `\n` +
-                      `        File uploadFile = new File(filePath);\n` +
-                      `        blobClient.uploadFromFile(filePath, true);\n` +
-                      `    }\n` +
-                      `}`}
-                  </code>
-                </pre>
-              </div>
-            )}
-            {provider === "GCP" && (
-              <div className="bg-gray-100 rounded-md p-4 overflow-x-auto">
-                <pre className="text-sm">
-                  <code>
-                    {`// Google Cloud Storage: Subir un archivo\n` +
-                      `import com.google.cloud.storage.BlobId;\n` +
-                      `import com.google.cloud.storage.BlobInfo;\n` +
-                      `import com.google.cloud.storage.Storage;\n` +
-                      `import com.google.cloud.storage.StorageOptions;\n` +
-                      `import java.io.IOException;\n` +
-                      `import java.nio.file.Paths;\n` +
-                      `\n` +
-                      `public class GCSUpload {\n` +
-                      `    public static void main(String[] args) throws IOException {\n` +
-                      `        String projectId = "***project_id***";\n` +
-                      `        String bucketName = "***bucket_name***";\n` +
-                      `        String objectName = "***object_name***/example.txt";\n` +
-                      `        String filePath = "***file_path***/example.txt";\n` +
-                      `\n` +
-                      `        Storage storage = StorageOptions.newBuilder().setProjectId(projectId).build().getService();\n` +
-                      `        BlobId blobId = BlobId.of(bucketName, objectName);\n` +
-                      `        BlobInfo blobInfo = BlobInfo.newBuilder(blobId).build();\n` +
-                      `        storage.create(blobInfo, Files.readAllBytes(Paths.get(filePath)));\n` +
-                      `    }\n` +
-                      `}`}
-                  </code>
-                </pre>
-              </div>
-            )}
-          </div>
-        ))}
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          {selectedProviders.map((provider) => (
+            <div key={provider} className="mb-8">
+              <h3 className="text-xl font-semibold mb-2">
+                {comparisonData[provider as keyof typeof comparisonData].name}
+              </h3>
+              {provider === "AWS" && (
+                <div className="code-block">
+                  <pre>
+                    <code>
+                      {`// AWS S3: Subir un archivo\n` +
+                        `import com.amazonaws.AmazonServiceException;\n` +
+                        `import com.amazonaws.SdkClientException;\n` +
+                        `import com.amazonaws.auth.profile.ProfileCredentialsProvider;\n` +
+                        `import com.amazonaws.services.s3.AmazonS3;\n` +
+                        `import com.amazonaws.services.s3.AmazonS3ClientBuilder;\n` +
+                        `import java.io.File;\n` +
+                        `\n` +
+                        `public class S3Upload {\n` +
+                        `    public static void main(String[] args) {\n` +
+                        `        String bucketName = "***bucket_name***";\n` +
+                        `        String fileObjKeyName = "***file_key***";\n` +
+                        `        String fileName = "***file_path***/example.txt";\n` +
+                        `\n` +
+                        `        try {\n` +
+                        `            AmazonS3 s3Client = AmazonS3ClientBuilder.standard()\n` +
+                        `                    .withCredentials(new ProfileCredentialsProvider())\n` +
+                        `                    .withRegion("us-west-2")\n` +
+                        `                    .build();\n` +
+                        `            s3Client.putObject(bucketName, fileObjKeyName, new File(fileName));\n` +
+                        `        } catch (AmazonServiceException e) {\n` +
+                        `            e.printStackTrace();\n` +
+                        `        } catch (SdkClientException e) {\n` +
+                        `            e.printStackTrace();\n` +
+                        `        }\n` +
+                        `    }\n` +
+                        `}`}
+                    </code>
+                  </pre>
+                </div>
+              )}
+              {provider === "Azure" && (
+                <div className="code-block">
+                  <pre>
+                    <code>
+                      {`// Azure Blob Storage: Subir un blob\n` +
+                        `import com.azure.storage.blob.*;\n` +
+                        `import java.io.*;\n` +
+                        `\n` +
+                        `public class BlobUpload {\n` +
+                        `    public static void main(String[] args) throws IOException {\n` +
+                        `        String connectStr = "***connection_string***";\n` +
+                        `        String containerName = "***container_name***";\n` +
+                        `        String blobName = "***blob_name***/example.txt";\n` +
+                        `        String filePath = "***file_path***/example.txt";\n` +
+                        `\n` +
+                        `        BlobServiceClient blobServiceClient = new BlobServiceClientBuilder().connectionString(connectStr).buildClient();\n` +
+                        `        BlobContainerClient containerClient = blobServiceClient.getBlobContainerClient(containerName);\n` +
+                        `        BlobClient blobClient = containerClient.getBlobClient(blobName);\n` +
+                        `\n` +
+                        `        File uploadFile = new File(filePath);\n` +
+                        `        blobClient.uploadFromFile(filePath, true);\n` +
+                        `    }\n` +
+                        `}`}
+                    </code>
+                  </pre>
+                </div>
+              )}
+              {provider === "GCP" && (
+                <div className="code-block">
+                  <pre>
+                    <code>
+                      {`// Google Cloud Storage: Subir un archivo\n` +
+                        `import com.google.cloud.storage.BlobId;\n` +
+                        `import com.google.cloud.storage.BlobInfo;\n` +
+                        `import com.google.cloud.storage.Storage;\n` +
+                        `import com.google.cloud.storage.StorageOptions;\n` +
+                        `import java.io.IOException;\n` +
+                        `import java.nio.file.Paths;\n` +
+                        `\n` +
+                        `public class GCSUpload {\n` +
+                        `    public static void main(String[] args) throws IOException {\n` +
+                        `        String projectId = "***project_id***";\n` +
+                        `        String bucketName = "***bucket_name***";\n` +
+                        `        String objectName = "***object_name***/example.txt";\n` +
+                        `        String filePath = "***file_path***/example.txt";\n` +
+                        `\n` +
+                        `        Storage storage = StorageOptions.newBuilder().setProjectId(projectId).build().getService();\n` +
+                        `        BlobId blobId = BlobId.of(bucketName, objectName);\n` +
+                        `        BlobInfo blobInfo = BlobInfo.newBuilder(blobId).build();\n` +
+                        `        storage.create(blobInfo, Files.readAllBytes(Paths.get(filePath)));\n` +
+                        `    }\n` +
+                        `}`}
+                    </code>
+                  </pre>
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
 }
-
