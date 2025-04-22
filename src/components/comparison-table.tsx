@@ -16,77 +16,77 @@ interface ComparisonTableProps {
 }
 
 export function ComparisonTable({ providers }: ComparisonTableProps) {
-  // Real data for comparison with images and sources
+  // Datos reales para la comparación con imágenes y fuentes
   const comparisonData = {
     AWS: {
       name: "Amazon Web Services",
       image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Amazon_Web_Services_Logo.svg/2560px-Amazon_Web_Services_Logo.svg.png",
-      description: "Amazon Web Services (AWS) is a comprehensive and widely adopted cloud platform, offering a broad set of services from data centers around the world.",
+      description: "Amazon Web Services (AWS) es una plataforma en la nube integral y ampliamente adoptada, que ofrece un amplio conjunto de servicios desde centros de datos de todo el mundo.",
       link: "https://aws.amazon.com/",
       compute: {
         service: "EC2",
         description:
-          "Amazon Elastic Compute Cloud (EC2) provides scalable computing capacity in the AWS cloud.",
+          "Amazon Elastic Compute Cloud (EC2) proporciona capacidad de cómputo escalable en la nube de AWS.",
         link: "https://aws.amazon.com/ec2/",
       },
       storage: {
         service: "S3",
         description:
-          "Amazon Simple Storage Service (S3) is an object storage service offering scalability, data availability, security, and performance.",
+          "Amazon Simple Storage Service (S3) es un servicio de almacenamiento de objetos que ofrece escalabilidad, disponibilidad de datos, seguridad y rendimiento.",
         link: "https://aws.amazon.com/s3/",
       },
       database: {
         service: "RDS",
         description:
-          "Amazon Relational Database Service (RDS) makes it easy to set up, operate, and scale a relational database in the cloud.",
+          "Amazon Relational Database Service (RDS) facilita la configuración, el funcionamiento y el escalado de una base de datos relacional en la nube.",
         link: "https://aws.amazon.com/rds/",
       },
     },
     Azure: {
       name: "Microsoft Azure",
       image: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Microsoft_Azure_Logo.svg/2560px-Microsoft_Azure_Logo.svg.png",
-      description: "Microsoft Azure is a growing collection of integrated cloud services—analytics, computing, database, mobile, networking, storage and web—for moving faster, achieving more and saving money.",
+      description: "Microsoft Azure es una creciente colección de servicios en la nube integrados: análisis, computación, bases de datos, dispositivos móviles, redes, almacenamiento y web, para avanzar más rápido, lograr más y ahorrar dinero.",
       link: "https://azure.microsoft.com/",
       compute: {
-        service: "Virtual Machines",
+        service: "Máquinas Virtuales",
         description:
-          "Azure Virtual Machines gives you the flexibility of virtualization for a wide range of computing solutions.",
+          "Azure Virtual Machines le brinda la flexibilidad de la virtualización para una amplia gama de soluciones informáticas.",
         link: "https://azure.microsoft.com/en-us/services/virtual-machines/",
       },
       storage: {
         service: "Blob Storage",
         description:
-          "Azure Blob Storage is Microsoft's object storage solution for the cloud.",
+          "Azure Blob Storage es la solución de almacenamiento de objetos de Microsoft para la nube.",
         link: "https://azure.microsoft.com/en-us/services/storage/blobs/",
       },
       database: {
         service: "Azure SQL Database",
         description:
-          "Azure SQL Database is a fully managed platform as a service (PaaS) database engine.",
+          "Azure SQL Database es un motor de base de datos como plataforma como servicio (PaaS) totalmente administrado.",
         link: "https://azure.microsoft.com/en-us/services/sql-database/",
       },
     },
     GCP: {
       name: "Google Cloud Platform",
       image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_Cloud_Platform_logo.svg/2560px-Google_Cloud_Platform_logo.svg.png",
-      description: "Google Cloud Platform is a suite of cloud computing services that runs on the same infrastructure that Google uses internally for its end-user products, such as Google Search and YouTube.",
+      description: "Google Cloud Platform es un conjunto de servicios de computación en la nube que se ejecutan en la misma infraestructura que Google usa internamente para sus productos de usuario final, como Google Search y YouTube.",
       link: "https://cloud.google.com/",
       compute: {
         service: "Compute Engine",
         description:
-          "Google Compute Engine lets you create and run virtual machines on Google's infrastructure.",
+          "Google Compute Engine le permite crear y ejecutar máquinas virtuales en la infraestructura de Google.",
         link: "https://cloud.google.com/compute",
       },
       storage: {
         service: "Cloud Storage",
         description:
-          "Google Cloud Storage is a unified object storage for developers and enterprises.",
+          "Google Cloud Storage es un almacenamiento de objetos unificado para desarrolladores y empresas.",
         link: "https://cloud.google.com/storage",
       },
       database: {
         service: "Cloud SQL",
         description:
-          "Google Cloud SQL is a fully-managed database service that makes it easy to set up, maintain, manage, and administer your relational databases in the cloud.",
+          "Google Cloud SQL es un servicio de base de datos totalmente administrado que facilita la configuración, el mantenimiento, la gestión y la administración de sus bases de datos relacionales en la nube.",
         link: "https://cloud.google.com/sql",
       },
     },
@@ -97,10 +97,10 @@ export function ComparisonTable({ providers }: ComparisonTableProps) {
   return (
     <div>
       <Table>
-        <TableCaption>Comparison of Cloud Providers</TableCaption>
+        <TableCaption>Comparación de Proveedores de Nube</TableCaption>
         <TableHeader>
           <TableRow>
-            <TableHead className="w-[150px]">Feature</TableHead>
+            <TableHead className="w-[150px]">Característica</TableHead>
             {providers.map((provider) => (
               <TableHead key={provider} className="w-[250px]">
                 {comparisonData[provider as keyof typeof comparisonData].name}
@@ -138,7 +138,7 @@ export function ComparisonTable({ providers }: ComparisonTableProps) {
                     rel="noopener noreferrer"
                     className="text-accent hover:underline"
                   >
-                    Learn more
+                    Aprende más
                   </a>
                 </TableCell>
               ))}
@@ -149,3 +149,4 @@ export function ComparisonTable({ providers }: ComparisonTableProps) {
     </div>
   );
 }
+
