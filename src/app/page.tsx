@@ -53,6 +53,17 @@ export default function Home() {
   const conclusion =
     "En conclusión, la elección del proveedor de nube ideal depende de tus necesidades específicas. AWS es el líder del mercado con una amplia gama de servicios, Azure ofrece una gran integración con el ecosistema Microsoft, y GCP destaca por su innovación y enfoque en datos. Recomiendo evaluar cuidadosamente tus prioridades antes de tomar una decisión.";
 
+    const infraestructuras = {
+        AWS: "AWS es el pionero y líder del mercado de nube pública, lanzado por Amazon en 2006. Ofrece la mayor variedad de servicios en la industria (más de 200 servicios completos) y opera sobre una infraestructura global muy extensa",
+        Azure: "Azure es la plataforma de nube de Microsoft, lanzada en 2010, y se ha posicionado como el segundo mayor proveedor global. Aprovecha la larga trayectoria de Microsoft en entornos empresariales, ofreciendo una integración fluida con productos corporativos existentes (Windows Server, SQL Server, Microsoft 365, etc.).",
+        GCP: "Google Cloud (lanzado formalmente en 2008 con Google App Engine) es la oferta de nube de Google, reconocida por aprovechar la experiencia de Google en tecnologías de contenedores, datos y machine learning. De hecho, Google fue el creador original de Kubernetes (orquestación de contenedores) e Istio (malla de servicios), lo que evidencia su ADN cloud-native",
+    };
+
+    const comparacionInfraestructura = {
+        AWS: "AWS cuenta con una amplia red global y 135 locaciones de Direct Connect para conexiones dedicadas",
+        Azure: "Azure opera una de las mayores redes terrestres y submarinas (con cableado propio) para conectar sus centros de datos, buscando garantizar baja latencia.",
+        GCP: "Google destaca su red definida por software con más de 3.2 millones de km de fibra óptica que enlaza sus regiones, lo que se traduce en alta velocidad y fiabilidad."
+    };
 
   return (
     <div className="container mx-auto p-4">
@@ -65,39 +76,39 @@ export default function Home() {
         <ComparisonTable providers={selectedProviders} />
       )}
 
-      {/* Sección de Información de Proveedores */}
-      <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-          {selectedProviders.map((provider) => (
-              <div key={provider} className="bg-white dark:bg-gray-800 p-6 rounded-md shadow-md hover:shadow-lg transition-shadow duration-300">
-                  <h2 className="text-xl font-bold mb-2 text-gray-900 dark:text-gray-50">
-                      {comparisonData[provider as keyof typeof comparisonData].name}
-                  </h2>
-                  <div className="flex justify-center mb-4">
-                      <Image
-                          src={comparisonData[provider as keyof typeof comparisonData].image}
-                          alt={`${
-                              comparisonData[provider as keyof typeof comparisonData].name
-                          } Logo`}
-                          width={150}
-                          height={60}
-                          className="rounded-md"
-                      />
-                  </div>
-                  <p className="mb-2 text-gray-700 dark:text-gray-300">
-                      {comparisonData[provider as keyof typeof comparisonData].description}
-                      <a
-                          href={
-                              comparisonData[provider as keyof typeof comparisonData].link
-                          }
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-blue-500 hover:underline ml-1"
-                      >
-                          Aprende más
-                      </a>
-                  </p>
-                   {/* Sección de Descripción General */}
-                   <div className="mt-4">
+        {/* Sección de Información de Proveedores */}
+        <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            {selectedProviders.map((provider) => (
+                <div key={provider} className="bg-white dark:bg-gray-800 p-6 rounded-md shadow-md hover:shadow-lg transition-shadow duration-300">
+                    <h2 className="text-xl font-bold mb-2 text-gray-900 dark:text-gray-50">
+                        {comparisonData[provider as keyof typeof comparisonData].name}
+                    </h2>
+                    <div className="flex justify-center mb-4">
+                        <Image
+                            src={comparisonData[provider as keyof typeof comparisonData].image}
+                            alt={`${
+                                comparisonData[provider as keyof typeof comparisonData].name
+                            } Logo`}
+                            width={150}
+                            height={60}
+                            className="rounded-md"
+                        />
+                    </div>
+                    <p className="mb-2 text-gray-700 dark:text-gray-300">
+                        {comparisonData[provider as keyof typeof comparisonData].description}
+                        <a
+                            href={
+                                comparisonData[provider as keyof typeof comparisonData].link
+                            }
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-blue-500 hover:underline ml-1"
+                        >
+                            Aprende más
+                        </a>
+                    </p>
+                    {/* Sección de Descripción General */}
+                    <div className="mt-4">
                         <h3 className="text-lg font-semibold mb-2 text-gray-900 dark:text-gray-50">
                             Descripción General
                         </h3>
@@ -105,9 +116,40 @@ export default function Home() {
                             {comparisonData[provider as keyof typeof comparisonData].overview}
                         </p>
                     </div>
-              </div>
-          ))}
-      </div>
+                </div>
+            ))}
+        </div>
+
+        {/* Sección de Descripción General de Infraestructura */}
+        <div className="mt-12">
+            <h2 className="text-2xl font-bold mb-4 text-center text-gray-800 dark:text-gray-100">
+                Infraestructura General
+            </h2>
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                {selectedProviders.map((provider) => (
+                    <div key={provider} className="bg-white dark:bg-gray-800 p-6 rounded-md shadow-md hover:shadow-lg transition-shadow duration-300">
+                        <h3 className="text-lg font-semibold mb-2 text-gray-900 dark:text-gray-50">{comparisonData[provider as keyof typeof comparisonData].name}</h3>
+                        <p className="text-gray-700 dark:text-gray-300">{infraestructuras[provider as keyof typeof infraestructuras]}</p>
+                    </div>
+                ))}
+            </div>
+        </div>
+
+        {/* Sección de Comparación de Infraestructura */}
+        <div className="mt-12">
+            <h2 className="text-2xl font-bold mb-4 text-center text-gray-800 dark:text-gray-100">
+                Comparación de Infraestructura
+            </h2>
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                {selectedProviders.map((provider) => (
+                    <div key={provider} className="bg-white dark:bg-gray-800 p-6 rounded-md shadow-md hover:shadow-lg transition-shadow duration-300">
+                        <h3 className="text-lg font-semibold mb-2 text-gray-900 dark:text-gray-50">{comparisonData[provider as keyof typeof comparisonData].name}</h3>
+                        <p className="text-gray-700 dark:text-gray-300">{comparacionInfraestructura[provider as keyof typeof comparacionInfraestructura]}</p>
+                    </div>
+                ))}
+            </div>
+        </div>
+
         {/* Sección de Opiniones */}
         <div className="mt-12">
             <h2 className="text-2xl font-bold mb-4 text-center text-gray-800 dark:text-gray-100">Nuestras Opiniones</h2>
@@ -142,4 +184,5 @@ export default function Home() {
     </div>
   );
 }
+
 
