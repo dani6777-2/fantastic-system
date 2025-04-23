@@ -97,6 +97,21 @@ export default function Home() {
           GCP: "Google, al igual que AWS, no posee un portafolio tradicional de software empresarial, pero ha buscado diferenciarse facilitando la integración en entornos multicloud y de productividad Google. Para empresas que usan Google Workspace (Gmail, Docs, Drive), Google Cloud ofrece ventajas como una identidad unificada y APIs para extender Workspace con servicios GCP."
       };
 
+    const ventajasYDesventajasData = {
+        AWS: {
+            ventajas: "Catálogo de servicios más amplio, Madurez y comunidad, Infraestructura global y resiliente, Innovación constante, Ecosistema de socios y Marketplace, Facilidad de adopción para pymes/desarrolladores, Opciones de control granular",
+            desventajas: "Demasiadas opciones (complejidad), Estructura de precios compleja, Competencia con algunos clientes, Menos énfasis inicial en híbrido, Soporte empresarial costoso, Herramientas nativas de gestión de costos algo básicas",
+        },
+        Azure: {
+            ventajas: "Integración con entornos Microsoft, Soluciones híbridas líderes, Fuerte enfoque enterprise y soporte, Amplia infraestructura global, Costo competitivo para escenarios enterprise, Creciente soporte a Linux y OSS, Alianzas únicas (OpenAI, Oracle)",
+            desventajas: "Complejidad en la plataforma, Menor enfoque en pequeñas empresas/startups, Calidad de soporte variable, Herencia de legado, Menos servicios de nicho que AWS, Multi-cloud aún incipiente",
+        },
+        GCP: {
+            ventajas: "Precio y modelo transparente, Liderazgo en contenedores y cloud-native, Orientado a startups y SMB, Compromiso con open source, Poder en big data, ML y analytics, Multicloud y flexibilidad, Red global de alta velocidad",
+            desventajas: "Menor cobertura de centros de datos, Ecosistema enterprise más reducido, Menor oferta de servicios especializados, Trayectoria más corta en mercado corporativo, Interfaz y curva de aprendizaje distinta, Menor oferta de soluciones on-prem/híbrido nativas",
+        }
+    };
+
     const miOpinion = {
         AWS: "AWS ofrece la mayor variedad de servicios y una gran escalabilidad, ideal para empresas de todos los tamaños. Sin embargo, su complejidad puede ser abrumadora para principiantes.",
         Azure: "Azure es una excelente opción para empresas que ya utilizan productos de Microsoft, gracias a su perfecta integración y enfoque en soluciones híbridas.",
@@ -117,20 +132,7 @@ export default function Home() {
         Azure: "Azure es la plataforma de nube de Microsoft, lanzada en 2010, y se ha posicionado como el segundo mayor proveedor global. Aprovecha la larga trayectoria de Microsoft en entornos empresariales, ofreciendo una integración fluida con productos corporativos existentes.",
         GCP: "Google Cloud es la oferta de nube de Google, reconocida por aprovechar la experiencia de Google en tecnologías de contenedores, datos y machine learning. De hecho, Google fue el creador original de Kubernetes.",
     };
-    const ventajasYDesventajasData = {
-        AWS: {
-            ventajas: "Catálogo de servicios más amplio, Madurez y comunidad, Infraestructura global y resiliente, Innovación constante, Ecosistema de socios y Marketplace, Facilidad de adopción para pymes/desarrolladores, Opciones de control granular",
-            desventajas: "Demasiadas opciones (complejidad), Estructura de precios compleja, Competencia con algunos clientes, Menos énfasis inicial en híbrido, Soporte empresarial costoso, Herramientas nativas de gestión de costos algo básicas",
-        },
-        Azure: {
-            ventajas: "Integración con entornos Microsoft, Soluciones híbridas líderes, Fuerte enfoque enterprise y soporte, Amplia infraestructura global, Costo competitivo para escenarios enterprise, Creciente soporte a Linux y OSS, Alianzas únicas (OpenAI, Oracle)",
-            desventajas: "Complejidad en la plataforma, Menor enfoque en pequeñas empresas/startups, Calidad de soporte variable, Herencia de legado, Menos servicios de nicho que AWS, Multi-cloud aún incipiente",
-        },
-        GCP: {
-            ventajas: "Precio y modelo transparente, Liderazgo en contenedores y cloud-native, Orientado a startups y SMB, Compromiso con open source, Poder en big data, ML y analytics, Multicloud y flexibilidad, Red global de alta velocidad",
-            desventajas: "Menor cobertura de centros de datos, Ecosistema enterprise más reducido, Menor oferta de servicios especializados, Trayectoria más corta en mercado corporativo, Interfaz y curva de aprendizaje distinta, Menor oferta de soluciones on-prem/híbrido nativas",
-        }
-    };
+
   return (
     
       
@@ -144,7 +146,7 @@ export default function Home() {
           
             {selectedProviders}
             onProviderSelect={handleProviderSelect}
-          /&gt;
+          />
         
       
 
