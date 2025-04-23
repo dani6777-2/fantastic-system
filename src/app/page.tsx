@@ -22,35 +22,38 @@ export default function Home() {
         AWS: {
             name: "Amazon Web Services",
             image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Amazon_Web_Services_Logo.svg/2560px-Amazon_Web_Services_Logo.svg.png",
-            description: "Amazon Web Services (AWS) es una plataforma en la nube integral y ampliamente adoptada, que ofrece un amplio conjunto de servicios desde centros de datos de todo el mundo.",
+            descripcion: "Amazon Web Services (AWS) es una plataforma en la nube integral y ampliamente adoptada, que ofrece un amplio conjunto de servicios desde centros de datos de todo el mundo.",
             link: "https://aws.amazon.com/",
             opinion: "AWS es ideal para empresas que buscan una amplia gama de servicios y una gran escalabilidad. Su madurez y adopción en el mercado la hacen una opción segura, aunque a veces compleja para principiantes.",
-            overview: "AWS es el pionero y líder del mercado de nube pública, lanzado por Amazon en 2006. Ofrece la mayor variedad de servicios en la industria (más de 200 servicios completos) y opera sobre una infraestructura global muy extensa. AWS cuenta con millones de clientes activos en todo el mundo, desde startups hasta grandes empresas y sector público, que ejecutan prácticamente cualquier caso de uso en su plataforma. La comunidad y ecosistema de AWS es el más grande y maduro, con innumerables socios, integradores y desarrolladores contribuyendo con herramientas y conocimiento. AWS se destaca por su amplio catálogo de servicios y su historial de innovación continua en la nube.",
+            descripcionGeneral: "AWS es el pionero y líder del mercado de nube pública, lanzado por Amazon en 2006. Ofrece la mayor variedad de servicios en la industria (más de 200 servicios completos) y opera sobre una infraestructura global muy extensa.",
             precios: "AWS utiliza un modelo de pago por uso, similar a pagar por la electricidad o el agua. Ofrecen Savings Plans e Instancias Reservadas con descuentos de hasta el 72% a cambio de compromisos a largo plazo. También ofrecen instancias Spot con descuentos aún mayores, pero sujetas a interrupción.",
             infraestructuraGlobal: "AWS cuenta con una amplia red global y 135 locaciones de Direct Connect para conexiones dedicadas.",
             serviciosClave: "EC2, S3, RDS, Lambda, SageMaker.",
+            seguridadYCumplimiento: "AWS ofrece una amplia gama de servicios de seguridad, incluyendo IAM, KMS, y GuardDuty, y cumple con numerosas certificaciones como PCI-DSS, HIPAA y FedRAMP."
         },
         Azure: {
             name: "Microsoft Azure",
             image: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Microsoft_Azure_Logo.svg/2560px-Microsoft_Azure_Logo.svg.png",
-            description: "Microsoft Azure es una creciente colección de servicios en la nube integrados: análisis, computación, bases de datos, dispositivos móviles, redes, almacenamiento y web, para avanzar más rápido, lograr más y ahorrar dinero.",
+            descripcion: "Microsoft Azure es una creciente colección de servicios en la nube integrados: análisis, computación, bases de datos, dispositivos móviles, redes, almacenamiento y web, para avanzar más rápido, lograr más y ahorrar dinero.",
             link: "https://azure.microsoft.com/",
             opinion: "Azure es una excelente opción para organizaciones que ya utilizan productos de Microsoft, ofreciendo una integración perfecta con su ecosistema. Es fuerte en soluciones híbridas y cumple con normativas específicas.",
-            overview: "Azure es la plataforma de nube de Microsoft, lanzada en 2010, y se ha posicionado como el segundo mayor proveedor global. Aprovecha la larga trayectoria de Microsoft en entornos empresariales, ofreciendo una integración fluida con productos corporativos existentes (Windows Server, SQL Server, Microsoft 365, etc.). Azure ofrece también más de 200 servicios en la nube y una red global de centros de datos muy amplia. Es la opción de confianza para el 95% de las empresas Fortune 500, que la utilizan para ejecutar aplicaciones clave como SAP, herramientas de analítica (Databricks) y entornos VMware. Azure se destaca en especial por sus capacidades de nube híbrida: permite integrar con facilidad entornos on-premises y la nube (por ejemplo, a través de Azure Arc y Azure Stack), lo cual es atractivo para organizaciones con centros de datos propios. Microsoft ha construido además una gran red de socios a nivel mundial para soportar a sus clientes empresariales. En resumen, Azure es reconocida por su enfoque empresarial, soporte híbrido y fuerte integración con el ecosistema Microsoft.",
+            descripcionGeneral: "Azure es la plataforma de nube de Microsoft, lanzada en 2010, y se ha posicionado como el segundo mayor proveedor global. Aprovecha la larga trayectoria de Microsoft en entornos empresariales, ofreciendo una integración fluida con productos corporativos existentes.",
             precios: "Azure ofrece un modelo de pago por uso con Instancias Reservadas y descuentos de hasta el 70%. Destacan el beneficio Hybrid Use Benefit, permitiendo a clientes reutilizar licencias on-premises de Windows Server o SQL Server en Azure. También tienen opciones de Azure Spot VMs con descuento para cargas interruptibles.",
             infraestructuraGlobal: "Azure opera una de las mayores redes terrestres y submarinas (con cableado propio) para conectar sus centros de datos, buscando garantizar baja latencia.",
             serviciosClave: "Máquinas Virtuales, Blob Storage, Azure SQL Database, Azure Functions, Azure DevOps.",
+            seguridadYCumplimiento: "Azure ofrece Microsoft Defender for Cloud y Sentinel para gestión de seguridad, y cumple con certificaciones como ISO, SOC, HITRUST y GDPR."
         },
         GCP: {
             name: "Google Cloud Platform",
             image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_Cloud_Platform_logo.svg/2560px-Google_Cloud_Platform_logo.svg.png",
-            description: "Google Cloud Platform es un conjunto de servicios de computación en la nube que se ejecutan en la misma infraestructura que Google usa internamente para sus productos de usuario final, como Google Search y YouTube.",
+            descripcion: "Google Cloud Platform es un conjunto de servicios de computación en la nube que se ejecutan en la misma infraestructura que Google usa internamente para sus productos de usuario final, como Google Search y YouTube.",
             link: "https://cloud.google.com/",
             opinion: "GCP destaca en análisis de datos y aprendizaje automático, siendo una opción innovadora para empresas que buscan soluciones de vanguardia. Su enfoque en open source y Kubernetes la hacen atractiva para desarrolladores.",
-            overview: "Google Cloud (lanzado formalmente en 2008 con Google App Engine) es la oferta de nube de Google, reconocida por aprovechar la experiencia de Google en tecnologías de contenedores, datos y machine learning. De hecho, Google fue el creador original de Kubernetes (orquestación de contenedores) e Istio (malla de servicios), lo que evidencia su ADN cloud-native. GCP ocupa el tercer lugar en cuota de mercado global, pero ha ganado popularidad especialmente entre empresas nativas digitales y startups enfocadas en datos, análisis e IA. Sus clientes incluyen desde compañías tradicionales (Mercedes-Benz, PayPal, Toyota) hasta empresas tecnológicas modernas. Google Cloud ha fortalecido en años recientes sus servicios empresariales y alianzas, por ejemplo con soporte mejorado para cargas de trabajo de VMware y Oracle. Se le reconoce por su innovación en inteligencia artificial (ej. modelos generativos propios) y una estructura de precios transparente y competitiva.",
+            descripcionGeneral: "Google Cloud es la oferta de nube de Google, reconocida por aprovechar la experiencia de Google en tecnologías de contenedores, datos y machine learning. De hecho, Google fue el creador original de Kubernetes.",
             precios: "GCP aplica descuentos por uso continuo automáticamente en instancias de cómputo que corren gran parte del mes, sin necesidad de reserva previa (hasta ~30% de descuento automático). Ofrecen Committed Use Discounts con compromisos de 1 o 3 años, logrando descuentos de hasta ~57%. También disponen de VMs preemptibles con precios muy reducidos para trabajos tolerantes a interrupciones.",
             infraestructuraGlobal: "Google destaca su red definida por software con más de 3.2 millones de km de fibra óptica que enlaza sus regiones, lo que se traduce en alta velocidad y fiabilidad.",
             serviciosClave: "Compute Engine, Cloud Storage, Cloud SQL, Kubernetes Engine, BigQuery.",
+            seguridadYCumplimiento: "GCP ofrece Security Command Center para gestión de riesgos y cumple con marcos internacionales como ISO 27001, SOC 1-3, PCI y HIPAA."
         },
     };
 
@@ -72,6 +75,12 @@ export default function Home() {
         GCP: "Compute Engine, Cloud Storage, Cloud SQL, Kubernetes Engine, BigQuery",
     };
 
+    const seguridadYCumplimientoData = {
+        AWS: "AWS ofrece una amplia gama de servicios de seguridad, incluyendo IAM, KMS, y GuardDuty, y cumple con numerosas certificaciones como PCI-DSS, HIPAA y FedRAMP.",
+        Azure: "Azure ofrece Microsoft Defender for Cloud y Sentinel para gestión de seguridad, y cumple con certificaciones como ISO, SOC, HITRUST y GDPR.",
+        GCP: "GCP ofrece Security Command Center para gestión de riesgos y cumple con marcos internacionales como ISO 27001, SOC 1-3, PCI y HIPAA.",
+    };
+
   const miOpinion = {
     AWS: "AWS ofrece la mayor variedad de servicios y una gran escalabilidad, ideal para empresas de todos los tamaños. Sin embargo, su complejidad puede ser abrumadora para principiantes.",
     Azure: "Azure es una excelente opción para empresas que ya utilizan productos de Microsoft, gracias a su perfecta integración y enfoque en soluciones híbridas.",
@@ -80,6 +89,12 @@ export default function Home() {
 
   const conclusion =
     "En conclusión, la elección del proveedor de nube ideal depende de tus necesidades específicas. AWS es el líder del mercado con una amplia gama de servicios, Azure ofrece una gran integración con el ecosistema Microsoft, y GCP destaca por su innovación y enfoque en datos. Recomiendo evaluar cuidadosamente tus prioridades antes de tomar una decisión.";
+
+        const opinionesEjemplo = {
+            AWS: "AWS es como un centro comercial gigante: tiene todo lo que necesitas, pero puede ser difícil encontrar lo que buscas.",
+            Azure: "Azure es como un traje a medida: encaja perfectamente si ya estás en el ecosistema de Microsoft.",
+            GCP: "GCP es como un laboratorio de innovación: si buscas lo último en tecnología, este es tu lugar."
+        };
 
   return (
     <div className="container mx-auto p-4">
@@ -112,7 +127,7 @@ export default function Home() {
                             />
                         </div>
                         <CardDescription className="comparison-card-description">
-                            {comparisonData[provider as keyof typeof comparisonData].description}
+                            {comparisonData[provider as keyof typeof comparisonData].descripcion}
                             <a
                                 href={comparisonData[provider as keyof typeof comparisonData].link}
                                 target="_blank"
@@ -139,7 +154,7 @@ export default function Home() {
                             <CardTitle className="comparison-card-title">{comparisonData[provider as keyof typeof comparisonData].name}</CardTitle>
                         </CardHeader>
                         <CardContent className="comparison-card-content">
-                            <CardDescription className="comparison-card-description">{comparisonData[provider as keyof typeof comparisonData].overview}</CardDescription>
+                            <CardDescription className="comparison-card-description">{comparisonData[provider as keyof typeof comparisonData].descripcionGeneral}</CardDescription>
                         </CardContent>
                     </Card>
                 ))}
@@ -200,6 +215,22 @@ export default function Home() {
                 ))}
             </div>
         </div>
+                  {/* Sección de Seguridad y Cumplimiento */}
+                  <div className="mt-12">
+                    <h2 className="section-title">Seguridad y Cumplimiento</h2>
+                    <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                        {selectedProviders.map((provider) => (
+                            <Card key={provider} className="comparison-card">
+                                <CardHeader className="comparison-card-header">
+                                    <CardTitle className="comparison-card-title">{comparisonData[provider as keyof typeof comparisonData].name}</CardTitle>
+                                </CardHeader>
+                                <CardContent className="comparison-card-content">
+                                    <CardDescription className="comparison-card-description">{comparisonData[provider as keyof typeof comparisonData].seguridadYCumplimiento}</CardDescription>
+                                </CardContent>
+                            </Card>
+                        ))}
+                    </div>
+                </div>
 
         {/* Sección de Opiniones */}
         <div className="mt-12">
@@ -232,6 +263,22 @@ export default function Home() {
                     ))}
                 </div>
             </div>
+                    {/* Sección de Opiniones de Ejemplo */}
+                    <div className="mt-12">
+                        <h2 className="section-title">Opiniones de Ejemplo</h2>
+                        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                            {selectedProviders.map((provider) => (
+                                <Card key={provider} className="comparison-card">
+                                    <CardHeader className="comparison-card-header">
+                                        <CardTitle className="comparison-card-title">{comparisonData[provider as keyof typeof comparisonData].name}</CardTitle>
+                                    </CardHeader>
+                                    <CardContent className="comparison-card-content">
+                                        <CardDescription className="comparison-card-description">{opinionesEjemplo[provider as keyof typeof opinionesEjemplo]}</CardDescription>
+                                    </CardContent>
+                                </Card>
+                            ))}
+                        </div>
+                    </div>
             {/* Conclusión Final */}
             <div className="mt-12">
                 <h2 className="section-title">Conclusión</h2>

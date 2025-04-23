@@ -21,7 +21,7 @@ export function ComparisonTable({ providers }: ComparisonTableProps) {
     AWS: {
       name: "Amazon Web Services",
       image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Amazon_Web_Services_Logo.svg/2560px-Amazon_Web_Services_Logo.svg.png",
-      description: "Amazon Web Services (AWS) es una plataforma en la nube integral y ampliamente adoptada, que ofrece un amplio conjunto de servicios desde centros de datos de todo el mundo.",
+      descripcion: "Amazon Web Services (AWS) es una plataforma en la nube integral y ampliamente adoptada, que ofrece un amplio conjunto de servicios desde centros de datos de todo el mundo.",
       link: "https://aws.amazon.com/",
       compute: {
         service: "EC2",
@@ -45,7 +45,7 @@ export function ComparisonTable({ providers }: ComparisonTableProps) {
     Azure: {
       name: "Microsoft Azure",
       image: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Microsoft_Azure_Logo.svg/2560px-Microsoft_Azure_Logo.svg.png",
-      description: "Microsoft Azure es una creciente colección de servicios en la nube integrados: análisis, computación, bases de datos, dispositivos móviles, redes, almacenamiento y web, para avanzar más rápido, lograr más y ahorrar dinero.",
+      descripcion: "Microsoft Azure es una creciente colección de servicios en la nube integrados: análisis, computación, bases de datos, dispositivos móviles, redes, almacenamiento y web, para avanzar más rápido, lograr más y ahorrar dinero.",
       link: "https://azure.microsoft.com/",
       compute: {
         service: "Máquinas Virtuales",
@@ -69,7 +69,7 @@ export function ComparisonTable({ providers }: ComparisonTableProps) {
     GCP: {
       name: "Google Cloud Platform",
       image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_Cloud_Platform_logo.svg/2560px-Google_Cloud_Platform_logo.svg.png",
-      description: "Google Cloud Platform es un conjunto de servicios de computación en la nube que se ejecutan en la misma infraestructura que Google usa internamente para sus productos de usuario final, como Google Search y YouTube.",
+      descripcion: "Google Cloud Platform es un conjunto de servicios de computación en la nube que se ejecutan en la misma infraestructura que Google usa internamente para sus productos de usuario final, como Google Search y YouTube.",
       link: "https://cloud.google.com/",
       compute: {
         service: "Compute Engine",
@@ -96,9 +96,9 @@ export function ComparisonTable({ providers }: ComparisonTableProps) {
 
   return (
     <div>
-      <Table>
+      <Table className="comparison-table">
         <TableCaption>Comparación de Proveedores de Nube</TableCaption>
-        <TableHeader>
+        <TableHeader className="comparison-table-header">
           <TableRow>
             <TableHead className="w-[150px]">Característica</TableHead>
             {providers.map((provider) => (
@@ -110,10 +110,10 @@ export function ComparisonTable({ providers }: ComparisonTableProps) {
         </TableHeader>
         <TableBody>
           {features.map((feature) => (
-            <TableRow key={feature}>
-              <TableCell className="font-medium">{feature}</TableCell>
+            <TableRow key={feature} className="comparison-table-row">
+              <TableCell className="font-medium comparison-table-cell">{feature}</TableCell>
               {providers.map((provider) => (
-                <TableCell key={`${provider}-${feature}`}>
+                <TableCell key={`${provider}-${feature}`} className="comparison-table-cell">
                   <p className="font-bold">
                     {
                       comparisonData[provider as keyof typeof comparisonData][
