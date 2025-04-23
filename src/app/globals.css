@@ -101,3 +101,33 @@ body {
 .code-block code {
   @apply font-mono text-sm text-gray-800;
 }
+
+/* Custom styles for the comparison cards */
+.comparison-card {
+    @apply bg-white dark:bg-gray-800 shadow-md hover:shadow-lg transition-shadow duration-300 rounded-lg overflow-hidden;
+}
+
+.comparison-card-header {
+    @apply bg-gray-100 dark:bg-gray-700 px-4 py-2;
+}
+
+.comparison-card-title {
+    @apply text-xl font-bold text-gray-900 dark:text-gray-50;
+}
+
+.comparison-card-content {
+    @apply p-4;
+}
+
+.comparison-card-description {
+    @apply text-gray-700 dark:text-gray-300;
+}
+/* Custom styles for the sections */
+.section-title {
+    @apply text-2xl font-bold mb-4 text-center text-gray-800 dark:text-gray-100;
+}
+
+/* Custom styles for the paragraphs */
+.section-paragraph {
+    @apply text-lg text-gray-800 dark:text-gray-200;
+}
