@@ -134,16 +134,24 @@ export default function Home() {
   return (
     
       
-        Comparador de Proveedores de Nube
-      
-      
-        {selectedProviders}
-        onProviderSelect={handleProviderSelect}
-      />
-
         
-          {selectedProviders.map((provider) => (
+          Comparador de Proveedores de Nube
+        
+        
+          
             
+          
+          
+            {selectedProviders}
+            onProviderSelect={handleProviderSelect}
+          /&gt;
+        
+      
+
+      
+        
+          
+            {selectedProviders.map((provider) => (
               
                 {comparisonData[provider as keyof typeof comparisonData].name}
               
@@ -378,5 +386,3 @@ export default function Home() {
     
   );
 }
-
-
