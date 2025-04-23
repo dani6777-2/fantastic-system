@@ -114,6 +114,25 @@ export default function Home() {
     
       
         
+          Comparador de Proveedores de Nube
+        
+      
+      
+        
+          
+            Comparador de Proveedores de Nube
+          
+        
+        
+          
+            
+              Comparador de Proveedores de Nube
+            
+          
+        
+      
+      
+        
           
             Comparador de Proveedores de Nube
           
@@ -124,7 +143,17 @@ export default function Home() {
         onProviderSelect={handleProviderSelect}
       />
       {selectedProviders.length > 0 && (
-        <ComparisonTable providers={selectedProviders} />
+        
+          {selectedProviders.map((provider) => (
+            
+              
+                
+                  {comparisonData[provider as keyof typeof comparisonData].name}
+                
+              
+            
+          ))}
+        
       )}
 
         {/* Sección de Información de Proveedores */}
@@ -245,9 +274,9 @@ export default function Home() {
                                     {seguridadYCumplimientoData[provider as keyof typeof seguridadYCumplimientoData]}
                                 
                             
-                        ))}
+                        
+                    ))}
                     
-                
                     {/* Sección de Integración con Ecosistemas Empresariales */}
                     
                         Integración con Ecosistemas Empresariales
@@ -327,4 +356,3 @@ export default function Home() {
     
   );
 }
-
