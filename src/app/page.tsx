@@ -112,14 +112,17 @@ export default function Home() {
         }
     };
 
+    const descripcionGeneralData = {
+        AWS: "AWS es el pionero y líder del mercado de nube pública, lanzado por Amazon en 2006. Ofrece la mayor variedad de servicios en la industria (más de 200 servicios completos) y opera sobre una infraestructura global muy extensa.",
+        Azure: "Azure es la plataforma de nube de Microsoft, lanzada en 2010, y se ha posicionado como el segundo mayor proveedor global. Aprovecha la larga trayectoria de Microsoft en entornos empresariales, ofreciendo una integración fluida con productos corporativos existentes.",
+        GCP: "Google Cloud es la oferta de nube de Google, reconocida por aprovechar la experiencia de Google en tecnologías de contenedores, datos y machine learning. De hecho, Google fue el creador original de Kubernetes.",
+    };
+
     const miOpinion = {
         AWS: "AWS ofrece la mayor variedad de servicios y una gran escalabilidad, ideal para empresas de todos los tamaños. Sin embargo, su complejidad puede ser abrumadora para principiantes.",
         Azure: "Azure es una excelente opción para empresas que ya utilizan productos de Microsoft, gracias a su perfecta integración y enfoque en soluciones híbridas.",
         GCP: "GCP destaca en innovación y análisis de datos, siendo una opción atractiva para empresas que buscan soluciones de vanguardia y un enfoque en open source.",
     };
-
-    const conclusion =
-        "En conclusión, la elección del proveedor de nube ideal depende de tus necesidades específicas. AWS es el líder del mercado con una amplia gama de servicios, Azure ofrece una gran integración con el ecosistema Microsoft, y GCP destaca por su innovación y enfoque en datos. Recomiendo evaluar cuidadosamente tus prioridades antes de tomar una decisión.";
 
     const opinionesEjemplo = {
         AWS: "AWS es como un centro comercial gigante: tiene todo lo que necesitas, pero puede ser difícil encontrar lo que buscas.",
@@ -127,11 +130,8 @@ export default function Home() {
         GCP: "GCP es como un laboratorio de innovación: si buscas lo último en tecnología, este es tu lugar."
     };
 
-    const descripcionGeneralData = {
-        AWS: "AWS es el pionero y líder del mercado de nube pública, lanzado por Amazon en 2006. Ofrece la mayor variedad de servicios en la industria (más de 200 servicios completos) y opera sobre una infraestructura global muy extensa.",
-        Azure: "Azure es la plataforma de nube de Microsoft, lanzada en 2010, y se ha posicionado como el segundo mayor proveedor global. Aprovecha la larga trayectoria de Microsoft en entornos empresariales, ofreciendo una integración fluida con productos corporativos existentes.",
-        GCP: "Google Cloud es la oferta de nube de Google, reconocida por aprovechar la experiencia de Google en tecnologías de contenedores, datos y machine learning. De hecho, Google fue el creador original de Kubernetes.",
-    };
+    const conclusion =
+        "En conclusión, la elección del proveedor de nube ideal depende de tus necesidades específicas. AWS es el líder del mercado con una amplia gama de servicios, Azure ofrece una gran integración con el ecosistema Microsoft, y GCP destaca por su innovación y enfoque en datos. Recomiendo evaluar cuidadosamente tus prioridades antes de tomar una decisión.";
 
   return (
     
@@ -139,14 +139,18 @@ export default function Home() {
         
           Comparador de Proveedores de Nube
         
+      
+      
         
           
             
+              
+                Proveedores:
+                {selectedProviders.join(', ') || 'Ninguno seleccionado'}
+                onProviderSelect={handleProviderSelect}
+              />
+            
           
-          
-            {selectedProviders}
-            onProviderSelect={handleProviderSelect}
-          />
         
       
 
@@ -388,3 +392,4 @@ export default function Home() {
     
   );
 }
+"
