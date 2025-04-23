@@ -43,7 +43,7 @@ export default function Home() {
             infraestructuraGlobal: "Azure opera una de las mayores redes terrestres y submarinas (con cableado propio) para conectar sus centros de datos, buscando garantizar baja latencia.",
             serviciosClave: "Máquinas Virtuales, Blob Storage, Azure SQL Database, Azure Functions, Azure DevOps.",
             seguridadYCumplimiento: "Azure ofrece Microsoft Defender for Cloud y Sentinel para gestión de seguridad, y cumple con certificaciones como ISO, SOC, HITRUST y GDPR.",
-            integracionEcosistemas: "Esta es quizás la mayor ventaja de Azure: para organizaciones que ya usan productos Microsoft, la adopción de Azure es muy natural y sencilla. Azure integra perfectamente con Microsoft 365 (Office): por ejemplo, Azure AD es la base de identidades para Office 365, permitiendo SSO entre la nube Azure y aplicaciones de productividad.",
+            integracionEcosistemas: "Esta es quizás la mayor ventaja de Azure: para organizaciones que ya utilizan productos de Microsoft, la adopción de Azure es muy natural y sencilla. Azure integra perfectamente con Microsoft 365 (Office): por ejemplo, Azure AD es la base de identidades para Office 365, permitiendo SSO entre la nube Azure y aplicaciones de productividad.",
         },
         GCP: {
             name: "Google Cloud Platform",
@@ -113,7 +113,11 @@ export default function Home() {
   return (
     
       
-        Comparador de Proveedores de Nube
+        
+          
+            Comparador de Proveedores de Nube
+          
+        
       
       <CloudProviderList
         selectedProviders={selectedProviders}
@@ -323,3 +327,4 @@ export default function Home() {
     
   );
 }
+
